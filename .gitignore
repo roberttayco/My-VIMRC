@@ -1,0 +1,14 @@
+# VIM garbage
+.*.sw[a-z]
+*.un~
+Session.vim
+
+# OSX garbage
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows garbage
+Thumbs.db
+Desktop.ini
