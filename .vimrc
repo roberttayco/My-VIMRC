@@ -14,10 +14,13 @@ set modelines=0
 " Saves all files when Vim loses focus
 au FocusLost * :wa
 
-colorscheme sorcerer
+syntax enable
+set background=dark
+colorscheme solarized
 set guifont=menlo:h13
 set linespace=7
 set cursorline
+call togglebg#map("<F5>")
 
 " Quick open for editing the .vimrc
 map <leader>e :vsp! $MYVIMRC<CR>
@@ -121,5 +124,5 @@ vmap <C-Down> ]egv
 let delimitMate_matchpairs = "(:),[:],{:},<:>"
 au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 
-" Get rid of all the '' crap
+" Get rid of all the <C-v><C-m> crap at the end of lines
 nnoremap <leader>m :%s///g<CR>
