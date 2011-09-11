@@ -1,12 +1,36 @@
 "==========================================================
 "	Standard settings
 "==========================================================
-
 " don't worry about being compatible with vi
 set nocompatible
-
 filetype off
-filetype plugin indent on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle
+" required!
+Bundle 'gmarik/vundle'
+
+"================================================
+" My Bundles
+"================================================
+" github repos
+"------------------------
+Bundle 'msanders/snipmate.vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Raimondi/delimitMate'
+Bundle 'ervandew/supertab'
+Bundle 'surround.vim'
+Bundle 'bingaman/vim-sparkup'
+Bundle 'EasyMotion'
+"================================================
+
+nmap <silent> <leader>t :CommandT<CR>
+nmap <silent> <leader>b :CommandTBuffer<CR>
+
+filetype plugin indent on  " required!
 
 " plugs security exploits with modelines...uhh, whatever.
 set modelines=0
