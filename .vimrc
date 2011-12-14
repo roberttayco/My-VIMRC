@@ -12,9 +12,9 @@ call vundle#rc()
 " let Vundle manage Vundle // required!
 Bundle 'gmarik/vundle'
 
-" ------------------------------------------------
+" ================================================
 "     Bundles
-" ------------------------------------------------
+" ================================================
 
 Bundle 'msanders/snipmate.vim'
 Bundle 'altercation/vim-colors-solarized'
@@ -27,14 +27,14 @@ Bundle 'bingaman/vim-sparkup'
 Bundle 'EasyMotion'
 Bundle 'unimpaired.vim'
 
-" ------------------------------------------------
+" ================================================
 
 " Auto-detect filetypes - must follow Vundle. // required!
 filetype plugin indent on
 
-" ------------------------------------------------
+" ================================================
 "     Platform variables
-" ------------------------------------------------
+" ================================================
 if has('win32') || has('win64')
    " Windows
    set guifont=Consolas:h11
@@ -187,5 +187,5 @@ nnoremap <leader>x :%s/\s\+$//<CR>:let @/=''<CR>
 " creates a vertical split and makes the split current
 nnoremap <leader>s <C-w>v<C-w>l
 
-" Get rid of all the <C-v><C-m> crap at the end of lines
+" Get rid of all the <C-v><C-m> crap at the end of lines // I don't think this works :(
 " nnoremap <leader>m :%s///g<CR>
