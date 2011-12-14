@@ -20,15 +20,14 @@ Bundle 'gmarik/vundle'
 Bundle 'msanders/snipmate.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Raimondi/delimitMate'
 Bundle 'ervandew/supertab'
 Bundle 'surround.vim'
 Bundle 'bingaman/vim-sparkup'
 Bundle 'EasyMotion'
+Bundle 'unimpaired.vim'
 "================================================
-
-nmap <silent> <leader>t :CommandT<CR>
-nmap <silent> <leader>b :CommandTBuffer<CR>
 
 filetype plugin indent on  " required!
 
@@ -41,13 +40,13 @@ au FocusLost * :wa
 syntax enable
 set background=dark
 colorscheme solarized
-set guifont=menlo:h13
+set guifont=menlo:h14
 set linespace=7
 set cursorline
 call togglebg#map("<F5>")
 
 " Quick open for editing the .vimrc
-map <leader>e :vsp! $MYVIMRC<CR>
+map <leader>v :vsp! $MYVIMRC<CR>
 " When vimrc is edited, reload it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
@@ -120,10 +119,10 @@ let mapleader = ","
 nnoremap <leader><space> :noh<CR>
 
 " strips all trailing white space in a file
-nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <leader>x :%s/\s\+$//<CR>:let @/=''<CR>
 
 " creates a vertical split and makes the split current
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>s <C-w>v<C-w>l
 
 " move around the split windows with <ctrl> + movement keys
 nnoremap <C-h> <C-w>h
