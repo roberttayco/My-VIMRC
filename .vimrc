@@ -179,7 +179,7 @@ au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 " leader key set to comma (',')
 let mapleader = ","
 " Quick open for editing the .vimrc
-map <leader>e :vsp! $MYVIMRC<CR>
+map <leader>v :vsp! $MYVIMRC<CR>
 " clears search highlight with <leader> + spacebar
 nnoremap <leader><space> :noh<CR>
 " strips all trailing white space in a file
