@@ -46,7 +46,9 @@ if has('win32') || has('win64')
    set columns=170
 
    " reload _vimrc on save
-   autocmd! bufwritepost _vimrc source 'c:\Program Files <x86>\Vim\_vimrc'
+   if has("autocmd")
+      autocmd! bufwritepost _vimrc source $MYVIMRC
+   endif
 
    " Windows has a nasty habit of launching gVim in the wrong working directory
    cd ~
@@ -54,8 +56,10 @@ elseif has('gui_macvim')
    " MacVim
 
    set guifont=menlo:h14
-   " When vimrc is edited, reload it
-   autocmd! bufwritepost .vimrc source ~/.vimrc
+   " reload .vimrc on save
+   if has("autocmd")
+      autocmd! bufwritepost .vimrc source $MYVIMRC
+   endif
    " Hide Toolbar in MacVim
    if has("gui_running")
       " Hides the MacVim toolbar
@@ -178,8 +182,8 @@ au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 " ------------------------------------------------
 " leader key set to comma (',')
 let mapleader = ","
-" Quick open for editing the .vimrc
-map <leader>v :vsp! $MYVIMRC<CR>
+" Quick open for editing the .vimrc in a new tab
+map <leader>v :tabedit $MYVIMRC<CR>
 " clears search highlight with <leader> + spacebar
 nnoremap <leader><space> :noh<CR>
 " strips all trailing white space in a file
