@@ -26,6 +26,7 @@ Bundle 'surround.vim'
 Bundle 'bingaman/vim-sparkup'
 Bundle 'EasyMotion'
 Bundle 'unimpaired.vim'
+Bundle 'golden-ratio'
 
 " ================================================
 
@@ -55,7 +56,7 @@ if has('win32') || has('win64')
 elseif has('gui_macvim')
    " MacVim
 
-   set guifont=menlo:h14
+   set guifont=source\ code\ pro:h14
    " reload .vimrc on save
    if has("autocmd")
       autocmd! bufwritepost .vimrc source $MYVIMRC
@@ -98,12 +99,12 @@ set guioptions-=L
 
 "     Text-formatting
 " ------------------------
-set linespace=7   " leading
+set linespace=2   " leading
 set smartindent
 set autoindent
-set tabstop=3
-set softtabstop=3
-set shiftwidth=3
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
 set linebreak     " soft wrap text
@@ -191,5 +192,5 @@ nnoremap <leader>x :%s/\s\+$//<CR>:let @/=''<CR>
 " creates a vertical split and makes the split current
 nnoremap <leader>s <C-w>v<C-w>l
 
-" Get rid of all the <C-v><C-m> crap at the end of lines // I don't think this works :(
-" nnoremap <leader>m :%s///g<CR>
+" Get rid of all the <C-v><C-m> crap at the end of lines
+nnoremap <leader>m :%s///<CR>
