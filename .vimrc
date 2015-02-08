@@ -26,6 +26,7 @@ Bundle 'surround.vim'
 Bundle 'bingaman/vim-sparkup'
 Bundle 'EasyMotion'
 Bundle 'unimpaired.vim'
+Bundle 'golden-ratio'
 
 " ================================================
 
@@ -55,7 +56,10 @@ if has('win32') || has('win64')
 elseif has('gui_macvim')
    " MacVim
 
-   set guifont=source\ code\ pro:h13
+   set guifont=source\ code\ pro:h12
+   set lines=48
+   set columns=144
+
    " reload .vimrc on save
    if has("autocmd")
       autocmd! bufwritepost .vimrc source $MYVIMRC
@@ -98,7 +102,7 @@ set guioptions-=L
 
 "     Text-formatting
 " ------------------------
-set linespace=3   " leading
+set linespace=1   " leading
 set smartindent
 set autoindent
 set tabstop=2
@@ -151,6 +155,11 @@ set matchpairs+=<:>,(:),{:},":"
 set fileencodings=utf-8    " defaults files to use utf-8
 
 " ================================================
+"     NERDTree
+" ================================================
+ 
+
+" ================================================
 "     Bindings
 " ================================================
 
@@ -192,4 +201,4 @@ nnoremap <leader>x :%s/\s\+$//<CR>:let @/=''<CR>
 nnoremap <leader>s <C-w>v<C-w>l
 
 " Get rid of all the <C-v><C-m> crap at the end of lines // I don't think this works :(
-" nnoremap <leader>m :%s///g<CR>
+nnoremap <leader>m :%s///g<CR>
