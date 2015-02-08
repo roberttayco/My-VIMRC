@@ -1,34 +1,47 @@
 " ================================================
 "     .vimrc by Robert Tayco
-"     hopefully working for both Win & Mac
 " ================================================
 
 set nocompatible  " don't worry about vi compatibility
 filetype off      " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" let Vundle manage Vundle // required!
-Bundle 'gmarik/vundle'
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
 
-" ================================================
-"     Bundles
-" ================================================
-
-Bundle 'msanders/snipmate.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Raimondi/delimitMate'
-Bundle 'ervandew/supertab'
-Bundle 'surround.vim'
-Bundle 'bingaman/vim-sparkup'
-Bundle 'EasyMotion'
-Bundle 'unimpaired.vim'
-Bundle 'golden-ratio'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
 " ================================================
+"     Plugins (Keep Plugin commands between vundle#begin/end.)
+" ================================================
+Plugin 'Spacegray.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mattn/emmet-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'KabbAmine/vCoolor.vim'
+Plugin 'chrisbra/Colorizer'
+" Plugin 'msanders/snipmate.vim'
+" Plugin 'ervandew/supertab'
+" Plugin 'bingaman/vim-sparkup'
+" Plugin 'EasyMotion'
+" Plugin 'golden-ratio'
+" ================================================
+call vundle#end()
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
 " Auto-detect filetypes - must follow Vundle. // required!
 filetype plugin indent on
@@ -82,7 +95,13 @@ endif
 
 "     Color
 " ------------------------
-set background=dark
+let hour = strftime("%H")
+if 6 <= hour && hour < 15
+  set background=light
+else
+  set background=dark
+endif
+
 colorscheme solarized
 " use F5 to toggle between light and dark solarized schemes
 call togglebg#map("<F5>")  
@@ -102,12 +121,12 @@ set guioptions-=L
 
 "     Text-formatting
 " ------------------------
-set linespace=1   " leading
+set linespace=3   " leading
 set smartindent
 set autoindent
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set smarttab
 set expandtab
 set linebreak     " soft wrap text
@@ -173,6 +192,10 @@ nnoremap <C-l> <C-w>l
 nnoremap j gj
 nnoremap k gk
 
+"   Emmet trigger
+let g:user_emmet_leader_key='<C-e>'
+
+
 "     'unimpaired' plugin
 " ------------------------------------------------
 " Move lines up and down
@@ -193,6 +216,8 @@ au FileType vim,html let b:delimitMate_matchpairs = "(:),[:],{:},<:>"
 let mapleader = ","
 " Quick open for editing the .vimrc in a new tab
 map <leader>v :tabedit $MYVIMRC<CR>
+" toggle NERDTree sidebar
+map <leader>f :NERDTreeToggle<CR>
 " clears search highlight with <leader> + spacebar
 nnoremap <leader><space> :noh<CR>
 " strips all trailing white space in a file
@@ -200,5 +225,5 @@ nnoremap <leader>x :%s/\s\+$//<CR>:let @/=''<CR>
 " creates a vertical split and makes the split current
 nnoremap <leader>s <C-w>v<C-w>l
 
-" Get rid of all the <C-v><C-m> crap at the end of lines // I don't think this works :(
-nnoremap <leader>m :%s///g<CR>
+" Get rid of all the <C-v><C-m> crap at the end of lines
+nnoremap <leader>m :%s///<CR>
